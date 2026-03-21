@@ -5,10 +5,13 @@ export interface CardProps {
   children: React.ReactNode;
 }
 
-export default function Card({ className = "", children }: CardProps) {
+export default function Card({ className, children }: CardProps) {
   return (
     <div
-      className={clsx("border-border rounded-lg border p-6 shadow-md", className)}
+      className={clsx(
+        "border-border rounded-lg border p-6 shadow-md transition-all duration-200",
+        className,
+      )}
     >
       {children}
     </div>
