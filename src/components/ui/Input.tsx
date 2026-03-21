@@ -6,7 +6,7 @@ export interface BaseInputProps {
   id: string;
   label?: string;
   error?: string;
-  helperText?: string;
+  helpertext?: string;
   type?: string;
 }
 
@@ -31,6 +31,7 @@ export default function Input(props: InputProps) {
   text-foreground
   px-3 py-2 w-full 
   rounded-lg
+  transition-all duration-200
   focus:ring-ring focus:ring-ring
   placeholder:text-muted-foreground
   focus:border-transparent focus:ring-2 focus:outline-none 
@@ -54,7 +55,7 @@ export default function Input(props: InputProps) {
         {...inputProps}
         type={
           props.type !== "password"
-            ? "text"
+            ? props.type
             : showPassword
               ? "text"
               : "password"
@@ -95,9 +96,9 @@ export default function Input(props: InputProps) {
       {props.error && (
         <p className="text-destructive mt-1 ml-2 text-sm">{props.error}</p>
       )}
-      {props.helperText && !props.error && (
+      {props.helpertext && !props.error && (
         <p className="text-muted-foreground mt-1 ml-2 text-sm">
-          {props.helperText}
+          {props.helpertext}
         </p>
       )}
     </div>

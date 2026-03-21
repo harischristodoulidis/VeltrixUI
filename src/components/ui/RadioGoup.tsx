@@ -26,7 +26,7 @@ export default function RadioGroup({
   label,
   disabled = false,
 }: RadioGroupProps) {
-  const [internalValue, setInternalValue] = useState(defaultValue);
+  const [internalValue, setInternalValue] = useState(defaultValue ?? "");
   const isControlled = value !== undefined;
   const selectedValue = isControlled ? value : internalValue;
 
@@ -39,7 +39,7 @@ export default function RadioGroup({
 
   return (
     <div className="flex flex-col gap-3">
-      {label && <p className="text-foreground text-sm">{label}</p>}
+      {label && <h4 className="text-foreground text-sm">{label}</h4>}
       {options.map((option) => (
         <RadioButton
           key={option.value}

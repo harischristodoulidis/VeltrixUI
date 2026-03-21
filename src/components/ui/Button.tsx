@@ -12,7 +12,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles = `${loading && `cursor-progress`}
-  cursor-pointer px-4 py-2 rounded-lg
+  cursor-pointer px-4 py-2 rounded-lg transition-all duration-200
   text-sm sm:text-base
   disabled:opacity-50 disabled:cursor-not-allowed`;
 

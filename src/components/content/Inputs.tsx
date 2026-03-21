@@ -29,7 +29,7 @@ export default function Inputs() {
             autoComplete="email"
             label="Input With Helper"
             placeholder="Enter Email..."
-            helperText="We'll never share your email"
+            helpertext="We'll never share your email"
           />
           <Input
             id="username"
