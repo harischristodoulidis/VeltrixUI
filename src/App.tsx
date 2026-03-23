@@ -7,6 +7,7 @@ import Navigation from "./components/content/Navigation";
 import TabMenu from "./components/content/TabMenu";
 import BreadcrumbContent from "./components/content/BreadcrumbContent";
 import FeedbackComponents from "./components/content/FeedbackComponents";
+import DataDisplay from "./components/content/DataDisplay";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <TabMenu />
           <BreadcrumbContent />
           <FeedbackComponents />
+          <DataDisplay />
         </div>
       </div>
     </>
