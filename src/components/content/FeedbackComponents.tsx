@@ -1,5 +1,3 @@
-import Alert from "../ui/Alert";
-import Badge from "../ui/Badge";
 import Alerts from "./Alerts";
 import Badges from "./Badges";
 import Tooltips from "./Tooltips";
