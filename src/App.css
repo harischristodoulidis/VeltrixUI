@@ -15,7 +15,10 @@
   --color-ring: #4f46e5;
 
   /* Feedback Colors */
-  --color-destructive: #dc2626;
+  --color-error: #dc2626;
+  --color-success: #16a34a;
+  --color-warning: #ea580c;
+  --color-info: #3b82f6;
 
   /* Text size */
   --text-xs: 0.75rem; /* 12px */
