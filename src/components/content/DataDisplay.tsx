@@ -1,4 +1,5 @@
 import ProgressBars from "./ProgressBars";
+import TableContent from "./TableContent";
 
 export default function DataDisplay() {
   return (
@@ -7,6 +8,7 @@ export default function DataDisplay() {
         Data Display
       </h2>
       <ProgressBars />
+      <TableContent />
     </section>
   );
 }

@@ -65,7 +65,7 @@ export default function Navbars() {
             }
             mobileActions={
               <>
-                <Button variant="outline">Sign In</Button>
+                <Button variant="secondary">Sign In</Button>
                 <Button variant="primary">Sign Up</Button>
               </>
             }
