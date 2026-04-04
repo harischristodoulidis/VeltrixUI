@@ -2,12 +2,15 @@ import {
   progressVariants,
   type progressVariant,
 } from "../../variants/progressVariants";
-import { sizeVariants, type SizeVariant } from "../../variants/sizeVariant";
+import {
+  progressSizeVariants,
+  type ProgressSizeVariant,
+} from "../../variants/sizeVariant";
 
 export interface ProgressProps {
   value: number;
   max?: number;
-  size?: SizeVariant;
+  size?: ProgressSizeVariant;
   showLabel?: boolean;
   variant?: progressVariant;
 }
@@ -24,7 +27,7 @@ export function Progress({
   return (
     <div className="w-full">
       <div
-        className={`bg-muted w-full overflow-hidden rounded-full ${sizeVariants[size]}`}
+        className={`bg-muted w-full overflow-hidden rounded-full ${progressSizeVariants[size]}`}
       >
         <div
           className={`h-full transition-all duration-300 ease-out ${progressVariants[variant]}`}
