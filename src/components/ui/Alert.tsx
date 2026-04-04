@@ -28,10 +28,10 @@ const icons: Record<
 };
 
 const iconColors: Record<AlertVariant, string> = {
-  info: "text-[#3b82f6]",
-  success: "text-[#16a34a]",
-  warning: "text-[#ea580c]",
-  error: "text-[#dc2626]",
+  info: "text-info",
+  success: "text-success",
+  warning: "text-warning",
+  error: "text-error",
 };
 
 export default function Alert({
