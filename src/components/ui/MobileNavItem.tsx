@@ -18,41 +18,50 @@ export default function MobileNavItem({
         : "hover:text-foreground hover:bg-muted"
     }`;
 
-  const handleClick = () => {
-    if (item.children && item.children?.length > 0) {
-      setIsExpanded(!isExpanded);
+  const content = (
+    <>
+      {item.label}
+      {item.children && item.children.length > 0 && (
+        <ChevronDown
+          className={`h-4 w-4 transition-transform duration-200 ${isExpanded && "rotate-180"}`}
+        />
+      )}
+    </>
+  );
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (!item.href) {
+      e.preventDefault();
     } else {
-      if (item.onClick) {
-        item.onClick();
-      }
       onClose();
     }
+    if (item.children && item.children?.length > 0) {
+      setIsExpanded(!isExpanded);
+    } else if (item.onClick) {
+      item.onClick();
+      onClose();
+    }
+  };
+
+  const handleChildClick = (child: NavItem, e: React.MouseEvent) => {
+    if (!child.href) {
+      e.preventDefault();
+    }
+    if (child.onClick) {
+      child.onClick();
+    }
+    onClose();
   };
 
   return (
     <div>
       {item.href && !item.children ? (
-        <a
-          href={item.href}
-          className={baseClasses}
-          onClick={(e) => {
-            e.preventDefault();
-            if (item.onClick) {
-              item.onClick();
-            }
-            onClose();
-          }}
-        >
-          <span>{item.label}</span>
+        <a href={item.href} className={baseClasses} onClick={handleClick}>
+          {content}
         </a>
       ) : (
         <button className={baseClasses} onClick={handleClick}>
-          <span>{item.label}</span>
-          {item.children && item.children.length > 0 && (
-            <ChevronDown
-              className={`h-4 w-4 transition-transform duration-200 ${isExpanded && "rotate-180"}`}
-            />
-          )}
+          {content}
         </button>
       )}
 
@@ -62,16 +71,9 @@ export default function MobileNavItem({
             if (child.href) {
               return (
                 <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (child.onClick) {
-                      e.preventDefault();
-                      child.onClick();
-                    }
-                    onClose();
-                  }}
+                  key={child.id}
+                  href={child.href}
+                  onClick={(e) => handleChildClick(child, e)}
                   className={`block rounded-lg px-4 py-2 text-sm transition-colors ${
                     child.active
                       ? "bg-muted text-muted-foreground"
@@ -84,15 +86,8 @@ export default function MobileNavItem({
             } else {
               return (
                 <button
-                  key={item.label}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (child.onClick) {
-                      e.preventDefault();
-                      child.onClick();
-                    }
-                    onClose();
-                  }}
+                  key={child.id}
+                  onClick={(e) => handleChildClick(child, e)}
                   className={`w-full rounded-lg px-4 py-2 text-left text-sm transition-colors ${
                     child.active
                       ? "bg-muted text-accent-foreground"

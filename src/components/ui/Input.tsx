@@ -6,7 +6,7 @@ export interface BaseInputProps {
   id: string;
   label?: string;
   error?: string;
-  helpertext?: string;
+  helperΤext?: string;
   type?: string;
 }
 
@@ -27,15 +27,13 @@ function PasswordInputDiv({ children }: PropsWithChildren) {
 export default function Input(props: InputProps) {
   const [showPassword, setShowPassword] = useState(false);
 
-  const baseStyles = `border border-border 
-  text-foreground
-  px-3 py-2 w-full 
+  const baseStyles = `border border-border text-foreground px-3 py-2 w-full 
   rounded-lg
   transition-all duration-200
   focus:ring-ring focus:ring-ring
   placeholder:text-muted-foreground
-  focus:border-transparent focus:ring-2 focus:outline-none 
-  disabled:cursor-not-allowed disabled:opacity-50 ${props.error ? "border-destructive focus:ring-destructive" : ""}`;
+  focus:border-transparent focus:ring-2 focus:outline-none
+  disabled:cursor-not-allowed disabled:opacity-50 ${props.error && "border-destructive focus:ring-destructive"}`;
 
   let inputContent;
 
@@ -96,9 +94,9 @@ export default function Input(props: InputProps) {
       {props.error && (
         <p className="text-destructive mt-1 ml-2 text-sm">{props.error}</p>
       )}
-      {props.helpertext && !props.error && (
+      {props.helperΤext && !props.error && (
         <p className="text-muted-foreground mt-1 ml-2 text-sm">
-          {props.helpertext}
+          {props.helperΤext}
         </p>
       )}
     </div>

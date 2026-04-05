@@ -1,12 +1,12 @@
 import React from "react";
 import { ChevronRight } from "lucide-react";
-import type BreadcrumpItem from "../../interfaces/BreadcrumpItem";
+import type BreadcrumbItem from "../../interfaces/BreadcrumbItem";
 
-export interface BreadcrumpProps {
-  items: BreadcrumpItem[];
+export interface BreadcrumbProps {
+  items: BreadcrumbItem[];
 }
 
-export default function Breadcrump({ items }: BreadcrumpProps) {
+export default function Breadcrumb({ items }: BreadcrumbProps) {
   return (
     <nav className="sm:tex-sm flex items-center gap-2 text-xs">
       {items.map((item, index) => {

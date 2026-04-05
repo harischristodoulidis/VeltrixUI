@@ -1,5 +1,10 @@
+import {
+  buttonVariants,
+  type ButtonVariant,
+} from "../../variants/buttonVariants";
+
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "outline";
+  variant?: ButtonVariant;
   loading?: boolean;
   children: React.ReactNode;
 }
@@ -11,22 +16,11 @@ export default function Button({
   children,
   ...props
 }: ButtonProps) {
-  const baseStyles = `${loading && `cursor-progress`}
-  cursor-pointer px-4 py-2 rounded-lg transition-all duration-200
-  text-sm sm:text-base
-  disabled:opacity-50 disabled:cursor-not-allowed`;
-
-  const variants = {
-    primary: "bg-primary text-primary-foreground hover:opacity-90",
-    secondary:
-      "bg-secondary text-secondary-foreground font-semibold hover:bg-secondary-hover",
-    outline:
-      "border-2 border-border bg-transparent text-foreground font-semibold hover:bg-muted ",
-  };
+  const baseStyles = `${loading && `cursor-progress`} cursor-pointer px-4 py-2 rounded-lg transition-all duration-200 text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed`;
 
   return (
     <button
-      className={`${baseStyles} ${variants[variant]} ${className}`}
+      className={`${baseStyles} ${buttonVariants[variant]} ${className}`}
       {...props}
     >
       {children}

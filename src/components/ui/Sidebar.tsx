@@ -1,4 +1,4 @@
-import type SidebarItem from "../../interfaces/SIdebarItem";
+import type SidebarItem from "../../interfaces/SidebarItem";
 
 export interface SidebarProps {
   items: SidebarItem[];

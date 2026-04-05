@@ -46,24 +46,25 @@ export default function Alert({
     <div
       className={`rounded-lg border-l-4 p-3 sm:p-4 ${alertVariants[variant]}`}
     >
-      <div className="flex gap-2 sm:gap-3"></div>
-      <Icon
-        className={`h-4 w-4 shrink-0 sm:h-5 sm:w-5 ${iconColors[variant]}`}
-      />
-      <div className="min-w-0 flex-1">
-        {title && (
-          <h4 className="mb-1 text-sm font-medium sm:text-base">{title}</h4>
+      <div className="flex gap-2 sm:gap-3">
+        <Icon
+          className={`h-4 w-4 shrink-0 sm:h-5 sm:w-5 ${iconColors[variant]}`}
+        />
+        <div className="min-w-0 flex-1">
+          {title && (
+            <h4 className="mb-1 text-sm font-medium sm:text-base">{title}</h4>
+          )}
+          <div className="text-xs sm:text-sm">{children}</div>
+        </div>
+        {onClose && (
+          <button
+            onClick={onClose}
+            className="shrink-0 text-current opacity-70 transition-opacity hover:opacity-100"
+          >
+            <X className="h-3 w-3 sm:h-4 sm:w-4" />
+          </button>
         )}
-        <div className="text-xs sm:text-sm">{children}</div>
       </div>
-      {onClose && (
-        <button
-          onClick={onClose}
-          className="shrink-0 text-current opacity-70 transition-opacity hover:opacity-100"
-        >
-          <X className="h-3 w-3 sm:h-4 sm:w-4" />
-        </button>
-      )}
     </div>
   );
 }

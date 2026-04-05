@@ -35,9 +35,9 @@ export default function Table<T>({
           </tr>
         </thead>
         <tbody className="divide-border divide-y">
-          {data.map((row, index) => (
+          {data.map((row) => (
             <tr
-              key={index}
+              key={Math.random()}
               className={hover ? "hover:bg-accent transition-colors" : ""}
             >
               {columns.map((column) => (
