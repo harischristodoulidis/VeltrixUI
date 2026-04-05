@@ -3,7 +3,7 @@ export const badgeVariants = {
   primary: "bg-primary text-primary-foreground",
   success: "bg-[#16a34a] text-white",
   warning: "bg-[#ea580c] text-white",
-  error: "bg-destructive text-primary-foreground",
+  error: "bg-error text-primary-foreground",
 } as const;
 
 export type BadgeVariant = keyof typeof badgeVariants;
