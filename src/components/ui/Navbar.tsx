@@ -9,6 +9,7 @@ export interface NavbarProps {
   items?: NavItem[];
   actions?: React.ReactNode;
   mobileActions?: React.ReactNode;
+  showMobileActionsInMenubar?: boolean;
 }
 
 export default function Navbar({
@@ -16,6 +17,7 @@ export default function Navbar({
   items = [],
   actions,
   mobileActions,
+  showMobileActionsInMenubar = true,
 }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -26,7 +28,6 @@ export default function Navbar({
 
     if (isMobileMenuOpen) {
       document.addEventListener("keydown", handleEscape);
-      // Prevent body scroll when menu is open
       document.body.style.overflow = "hidden";
     }
 
@@ -62,7 +63,7 @@ export default function Navbar({
             {/* Desktop Navigation */}
             <div className="hidden items-center gap-1 lg:flex">
               {items.map((item) => (
-                <DesktopNavItem key={item.label} item={item} />
+                <DesktopNavItem key={item.id} item={item} />
               ))}
             </div>
 
@@ -73,15 +74,10 @@ export default function Navbar({
               </div>
             )}
 
-            {/* Mobile Actions */}
-            {mobileActions && (
+            {/* Mobile Actions in Menubar*/}
+            {mobileActions && showMobileActionsInMenubar && (
               <div className="flex shrink-0 items-center gap-2 sm:hidden">
                 {mobileActions}
-              </div>
-            )}
-            {!mobileActions && actions && (
-              <div className="flex shrink-0 items-center gap-2 sm:hidden">
-                {actions}
               </div>
             )}
 
@@ -111,7 +107,7 @@ export default function Navbar({
                       className="text-muted-foreground hover:text-foreground ml-auto transition-colors"
                       aria-label="Close menu"
                     >
-                      <X className="h-5 w-5" />
+                      <X className="text-foreground h-5 w-5" />
                     </button>
                   </div>
 
@@ -119,7 +115,7 @@ export default function Navbar({
                   <div className="p-2">
                     {items.map((item) => (
                       <MobileNavItem
-                        key={item.label}
+                        key={item.id}
                         item={item}
                         onClose={() => setIsMobileMenuOpen(false)}
                       />

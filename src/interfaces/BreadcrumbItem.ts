@@ -1,4 +1,4 @@
-export default interface BreadcrumpItem {
+export default interface BreadcrumbItemItem {
   label: string;
   href?: string;
   onClick?: () => void;

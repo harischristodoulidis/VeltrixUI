@@ -7,6 +7,7 @@ export default function DesktopNavItem({ item }: { item: NavItem }) {
 
   const baseClasses = `px-3 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap flex items-center gap-1
     ${item.active ? "bg-muted" : "hover:text-foreground hover:bg-muted"}`;
+
   const content = (
     <>
       {item.label}
@@ -19,16 +20,22 @@ export default function DesktopNavItem({ item }: { item: NavItem }) {
   );
 
   const handleClick = (e: React.MouseEvent) => {
-    if (item.children && item.children.length > 0) {
+    if (!item.href) {
       e.preventDefault();
+    }
+    if (item.children && item.children.length > 0) {
       setIsOpen(!isOpen);
     } else if (item.onClick) {
-      e.preventDefault();
       item.onClick();
-    } else if (item.href) {
-      // Let the default link behavior happen
-      return;
     }
+  };
+
+  const handleChildClick = (child: NavItem, e: React.MouseEvent) => {
+    if (child.onClick) {
+      e.preventDefault();
+      child.onClick();
+    }
+    setIsOpen(false);
   };
 
   const handleMouseEnter = () => {
@@ -59,7 +66,6 @@ export default function DesktopNavItem({ item }: { item: NavItem }) {
         </button>
       )}
 
-      {/* Desktop Dropdown Menu */}
       {item.children && item.children.length > 0 && isOpen && (
         <div
           className="absolute top-full left-0 z-100 mt-0 min-w-50 rounded-lg shadow-lg"
@@ -73,15 +79,9 @@ export default function DesktopNavItem({ item }: { item: NavItem }) {
               if (child.href) {
                 return (
                   <a
-                    key={child.label}
+                    key={child.id}
                     href={child.href}
-                    onClick={(e) => {
-                      if (child.onClick) {
-                        e.preventDefault();
-                        child.onClick();
-                      }
-                      setIsOpen(false);
-                    }}
+                    onClick={(e) => handleChildClick(child, e)}
                     className={`block px-4 py-2 text-sm transition-colors ${
                       child.active
                         ? "bg-muted text-muted-foreground"
@@ -94,12 +94,8 @@ export default function DesktopNavItem({ item }: { item: NavItem }) {
               } else {
                 return (
                   <button
-                    key={item.label}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      if (child.onClick) child.onClick();
-                      setIsOpen(false);
-                    }}
+                    key={child.id}
+                    onClick={(e) => handleChildClick(child, e)}
                     className={`w-full px-4 py-2 text-left text-sm transition-colors ${
                       child.active
                         ? "bg-muted text-muted-foreground"

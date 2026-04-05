@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export interface ToogleProps {
+export interface TogleProps {
   id?: string;
   defaultChecked?: boolean;
   checked?: boolean;
@@ -16,7 +16,7 @@ export default function Toggle({
   disabled = false,
   label,
   onChange,
-}: ToogleProps) {
+}: TogleProps) {
   const [internalChecked, setInternalChecked] = useState(
     defaultChecked ?? false,
   );

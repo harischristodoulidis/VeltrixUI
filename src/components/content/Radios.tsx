@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Card from "../ui/Card";
-import RadioGroup from "../ui/RadioGoup";
+import RadioGroup from "../ui/RadioGroup";
 
 export default function Radio() {
   const [radioValue, setRadioValue] = useState("5");
