@@ -1,8 +1,8 @@
 export const progressVariants = {
   default: "bg-primary",
-  success: "bg-[#16a34a]",
-  warning: "bg-[#ea580c]",
-  error: "bg-destructive",
+  success: "bg-success",
+  warning: "bg-warning",
+  error: "bg-error",
 };
 
 export type progressVariant = keyof typeof progressVariants;

@@ -46,7 +46,7 @@ export default function Toggle({
         className={`relative h-6 w-11 cursor-pointer rounded-full transition-all duration-200 ${isChecked ? "bg-primary" : "bg-muted"} ${disabled && "cursor-not-allowed opacity-50"} focus:ring-ring focus:ring-2 focus:ring-offset-2 focus:outline-none`}
       >
         <span
-          className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow-sm transition-transform duration-200 ${isChecked ? "translate-x-5" : "translate-x-0"}`}
+          className={`bg-primary-foreground absolute top-0.5 left-0.5 h-5 w-5 rounded-full shadow-sm transition-transform duration-200 ${isChecked ? "translate-x-5" : "translate-x-0"}`}
         />
       </button>
       {label && (

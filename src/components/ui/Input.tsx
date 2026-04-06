@@ -33,7 +33,7 @@ export default function Input(props: InputProps) {
   focus:ring-ring focus:ring-ring
   placeholder:text-muted-foreground
   focus:border-transparent focus:ring-2 focus:outline-none
-  disabled:cursor-not-allowed disabled:opacity-50 ${props.error && "border-destructive focus:ring-destructive"}`;
+  disabled:cursor-not-allowed disabled:opacity-50 ${props.error && "border-error focus:ring-error"}`;
 
   let inputContent;
 
@@ -92,7 +92,7 @@ export default function Input(props: InputProps) {
         inputContent
       )}
       {props.error && (
-        <p className="text-destructive mt-1 ml-2 text-sm">{props.error}</p>
+        <p className="text-error mt-1 ml-2 text-sm">{props.error}</p>
       )}
       {props.helperΤext && !props.error && (
         <p className="text-muted-foreground mt-1 ml-2 text-sm">

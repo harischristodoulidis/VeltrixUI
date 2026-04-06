@@ -70,7 +70,7 @@ export default function Select({
           type="button"
           onClick={() => !disabled && setIsOpen(!isOpen)}
           disabled={disabled}
-          className={`bg-background border-border focus:ring-ring flex w-full items-center justify-between rounded-lg border px-3 py-2 text-left text-xs transition-all duration-200 focus:border-transparent focus:ring-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 sm:text-sm ${!selectedValue && error && "border-destructive focus:ring-destructive"} ${isOpen && "ring-ring ring-2"}`}
+          className={`bg-background border-border focus:ring-ring flex w-full items-center justify-between rounded-lg border px-3 py-2 text-left text-xs transition-all duration-200 focus:border-transparent focus:ring-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 sm:text-sm ${!selectedValue && error && "border-error focus:ring-error"} ${isOpen && "ring-ring ring-2"}`}
         >
           <span
             className={`truncate ${selectedOption ? "text-foreground" : "text-muted-foreground"}`}
@@ -104,7 +104,7 @@ export default function Select({
         )}
       </div>
       {!selectedValue && error && (
-        <p className="text-destructive mt-1 text-xs sm:text-sm">{error}</p>
+        <p className="text-error mt-1 text-xs sm:text-sm">{error}</p>
       )}
     </div>
   );
