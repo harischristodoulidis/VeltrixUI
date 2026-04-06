@@ -84,7 +84,7 @@
 
   .dark {
     /* Colors */
-    --color-background: rgb(33, 33, 33);
+    --color-background: #222736;
     --color-foreground: #fafafa;
     --color-muted: #171717;
     --color-muted-foreground: #a3a3a3;
