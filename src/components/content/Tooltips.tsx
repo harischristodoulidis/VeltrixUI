@@ -5,6 +5,9 @@ import Tooltip from "../ui/Tooltip";
 export default function Tooltips() {
   return (
     <div>
+      <h3 className="text-foreground mb-3 text-base font-medium sm:text-lg">
+        Tooltips
+      </h3>
       <Card>
         <div className="flex flex-col flex-wrap gap-4 sm:flex-row">
           <Tooltip content="Tooltip on top">
