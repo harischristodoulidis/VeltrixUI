@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { Moon, Sun } from "lucide-react";
 import "./App.css";
 import Header from "./components/content/Header";
 import Buttons from "./components/content/Buttons";
@@ -11,12 +11,12 @@ import BreadcrumbContent from "./components/content/BreadcrumbContent";
 import FeedbackComponents from "./components/content/FeedbackComponents";
 import DataDisplay from "./components/content/DataDisplay";
 import Overlays from "./components/content/Overlays";
-import Button from "./components/ui/Button";
+import Tooltip from "./components/ui/Tooltip";
 
 function App() {
   const [darkMode, setDarkMode] = useState<boolean>(() => {
-    const stored = localStorage.getItem("darkMode");
-    return stored ? JSON.parse(stored) : false;
+    const storedTheme = localStorage.getItem("darkMode");
+    return storedTheme ? JSON.parse(storedTheme) : false;
   });
 
   useEffect(() => {
@@ -24,14 +24,25 @@ function App() {
     document.documentElement.classList.toggle("dark", darkMode);
   }, [darkMode]);
 
+  const handleChangeTheme = () => {
+    setDarkMode((prev) => !prev);
+  };
+
   return (
     <>
-      <div
-        className={`${darkMode && `dark`} mx-auto max-w-350 px-4 py-6 sm:px-6 sm:py-8 lg:px-8`}
-      >
-        <Button variant="primary" onClick={() => setDarkMode((prev) => !prev)}>
-          Channge Theme
-        </Button>
+      <div className={`mx-auto max-w-350 px-4 py-6 sm:px-6 sm:py-8 lg:px-8`}>
+        <div className="fixed top-5 right-5 z-50">
+          {!darkMode ? (
+            <Tooltip content="Switch to light mode" position="left">
+              <Moon className="cursor-pointer" onClick={handleChangeTheme} />
+            </Tooltip>
+          ) : (
+            <Tooltip content="Switch to light mode" position="left">
+              <Sun className="cursor-pointer" onClick={handleChangeTheme} />
+            </Tooltip>
+          )}
+        </div>
+
         <Header />
         <Buttons />
         <Inputs />

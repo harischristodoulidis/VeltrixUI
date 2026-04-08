@@ -1,5 +1,5 @@
 export const buttonVariants = {
-  primary: "bg-primary text-primary-foreground hover:opacity-90",
+  primary: "bg-primary text-white hover:opacity-90",
   secondary:
     "bg-secondary text-secondary-foreground font-semibold hover:bg-secondary-hover",
   outline:

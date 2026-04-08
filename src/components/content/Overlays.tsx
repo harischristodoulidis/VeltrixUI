@@ -27,7 +27,7 @@ export default function Overlays() {
             <Dropdown
               trigger={
                 <Button
-                  variant="outline"
+                  variant="primary"
                   className="inline-flex items-center justify-center gap-2"
                 >
                   Actions <MoreVertical className="ml-1 h-4 w-4" />

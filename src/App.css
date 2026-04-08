@@ -17,7 +17,7 @@
   --color-ring: #4f46e5;
 
   /* Feedback Colors */
-  --color-error: #dc2626;
+  --color-error: #ec4561;
   --color-success: #16a34a;
   --color-warning: #ea580c;
   --color-info: #3b82f6;
@@ -89,14 +89,11 @@
     --color-muted: #171717;
     --color-muted-foreground: #a3a3a3;
     --color-primary: #6366f1;
-    --color-primary-foreground: #fafafa;
+    --color-primary-foreground: #222736;
     --color-secondary: #262626;
     --color-secondary-foreground: #fafafa;
     --color-secondary-hover: #404040;
-    --color-border: #262626;
+    --color-border: #737373;
     --color-ring: #6366f1;
-
-    --color-background-dark: #0a0a0a;
-    --color-foreground-dark: #fafafa;
   }
 }
