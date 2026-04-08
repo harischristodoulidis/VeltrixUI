@@ -26,7 +26,7 @@ export default function Tooltip({
       {children}
       {isVisible && (
         <div
-          className={`bg-foreground pointer-events-none absolute z-50 rounded px-2 py-1 text-xs whitespace-nowrap text-white ${positionVariants[position]}`}
+          className={`bg-foreground text-primary-foreground pointer-events-none absolute z-50 rounded px-2 py-1 text-xs whitespace-nowrap ${positionVariants[position]}`}
           style={{ boxShadow: "var(--shadow-md)" }}
         >
           {content}
