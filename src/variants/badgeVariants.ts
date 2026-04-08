@@ -1,6 +1,6 @@
 export const badgeVariants = {
   default: "bg-muted text-foreground",
-  primary: "bg-primary text-primary-foreground",
+  primary: "bg-primary text-white",
   success: "bg-success text-primary-foreground",
   warning: "bg-warning text-primary-foreground",
   error: "bg-error text-primary-foreground",
